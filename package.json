@@ -1,0 +1,36 @@
+{
+  "name": "AwesomeProject",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "react": "16.13.1",
+    "react-native": "0.63.4",
+    "react-native-chart-kit": "^6.11.0",
+    "react-native-gesture-handler": "^1.10.1",
+    "react-native-responsive-linechart": "^5.0.0",
+    "react-native-speedometer": "^1.0.5",
+    "react-native-speedometer-chart": "^0.7.5",
+    "react-native-svg": "^12.1.0",
+    "sp-react-native-mqtt": "^0.4.26"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/runtime": "^7.8.4",
+    "@react-native-community/eslint-config": "^1.1.0",
+    "babel-jest": "^25.1.0",
+    "eslint": "^6.5.1",
+    "jest": "^25.1.0",
+    "metro-react-native-babel-preset": "^0.59.0",
+    "react-test-renderer": "16.13.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
