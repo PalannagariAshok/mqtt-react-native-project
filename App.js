@@ -65,6 +65,8 @@ export default class App extends Component {
     dataset:[],
     tempVal:'',
     humVal:'',
+    brokerUsername:'',
+    brokerPassword:'',
     graphScreen:false,
     mqttConnect:false,
     mqttClient:{},
@@ -84,6 +86,8 @@ export default class App extends Component {
      return this.setState({brokerUrl: e})}
     ;
   handleChangeBrokerPort=e =>this.setState({brokerPort: e});
+  onChangeBrokerUsername =e => this.setState({brokerUsername: e});
+  onChangeBrokerPassword =e => this.setState({brokerPassword: e});
   dashboardView=e=>{
     this.setState({connect: 1});
   }
@@ -97,8 +101,12 @@ export default class App extends Component {
     console.log('pressed')
     try{
       MQTT.createClient({
-        uri: `${this.state.brokerUrl}:${this.state.brokerPort}`,
-        clientId: 'your_client_id'
+        // uri: `${this.state.brokerUrl}:${this.state.brokerPort}`,
+        host:`${this.state.brokerUrl}`,
+        port:`${this.state.brokerPort}`,
+        clientId: 'your_client_id',
+        user:this.state.brokerUsername,
+        pass:this.state.brokerPassword
       }).then((client) =>{
         this.setState({
           mqttClient:client,
@@ -249,7 +257,7 @@ export default class App extends Component {
       Screen =  <View style={{padding:10}}>
             <MqttConn brokerUrl={this.state.brokerUrl} brokerPort={this.state.brokerPort} onChangeBrokerUrl={this.handleChangeBrokerUrl} onChangeBrokerPort={this.handleChangeBrokerPort}/>
 
-            <MqttConnAuth brokerConnection={this.handleBrokerConnection} connection={this.state.connect} mqttConnection={this.state.mqttConnect} dashboardView={this.dashboardView} brokerDisconnection={this.brokerDisconnection} /> 
+            <MqttConnAuth brokerConnection={this.handleBrokerConnection} connection={this.state.connect} mqttConnection={this.state.mqttConnect} dashboardView={this.dashboardView} brokerDisconnection={this.brokerDisconnection} onChangeBrokerUsername={this.onChangeBrokerUsername} onChangeBrokerPassword={this.onChangeBrokerPassword} brokerUsername={this.state.brokerUsername} brokerPassword={this.state.brokerPassword}/> 
             {/* <Text>{this.state.brokerUrl}</Text>  */}
           </View>;
     }

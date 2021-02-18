@@ -35,13 +35,23 @@ const UselessTextInput = () => {
                 <View >
                 <Text>Username</Text>
                 <View> 
-                    <UselessTextInput name='Port'/>
+                  <TextInput
+                      style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+                          type="text"
+                          value={this.props.brokerUsername}
+                          onChangeText={this.props.onChangeBrokerUsername}
+                      />
                 </View>
                 </View>
                 <View>
                 <Text> Password</Text>
                 <View> 
-                    <UselessTextInput name='Port'/>
+                <TextInput
+                      style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+                          type="text"
+                          value={this.props.brokerPassword}
+                          onChangeText={this.props.onChangeBrokerPassword}
+                      />
                 </View>
                 </View>
             </View>
