@@ -81,7 +81,6 @@ const UselessTextInput = () => {
 
 
 }
-
 const styles = StyleSheet.create({
   submit:{
     width:'40%',
